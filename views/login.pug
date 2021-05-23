@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  main.container.d-flex.justify-content-center.align-items-center.h-100.w-100.flex-column
+    form.form-signin(action="/login", method="post")
+      h1.text-center.pb-3 Please sign in
+      .mb-3
+        label.form-label.visually-hidden(for="username") Username:
+        input#username.form-control(placeholder="username" type="text", name="username", value=username ? username : '', class=errors ? 'is-invalid' : '')
+        if errors 
+          .invalid-feedback Username or password is invalid
+      .mb-3
+        label.form-label.visually-hidden(for="password") Password:
+        input#password.form-control(placeholder="password" type="password", name="password" class=errors ? 'is-invalid' : '')
+        if errors 
+          .invalid-feedback Username or password is invalid
+      .mb-3.text-center
+        label
+          input(type="checkbox" name="rememberme" value="rememberme")
+          |  Remember me
+
+      button.w-100.btn.btn-primary(type="submit") Sign in

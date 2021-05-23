@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  main.container
+    h1 Welcome back #{username}
+
+    form(action="/logout", method="post")
+      //- vi låtsas vara en delete request
+      button(type="submit") Logout
+
+    h2 Change password or username
+    ul
+      li Skapa tests om du så önskar 
+      li Skapa en update metod i authcontroller 
+      li posta data från formulär här till /home/:include
+      li home router för post på id

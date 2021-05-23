@@ -1,0 +1,32 @@
+mixin nav-link(href, name)
+  if name === title
+    li.nav-item
+      a.nav-link.active(aria-current='page' href=href)= name
+  else
+    li.nav-item
+      a.nav-link(href=href)= name
+
+block nav
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    .container-fluid
+      a.navbar-brand(href='#') Navbar
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.me-auto.mb-2.mb-lg-0
+          +nav-link('/', 'Start')
+          +nav-link('/login', 'login')
+          +nav-link('/register', 'register')
+          +nav-link('/home', 'home')
+
+        .nav-item.dropdown
+          a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+            | User dropdown
+          ul.dropdown-menu(aria-labelledby='navbarDropdown')
+            +nav-link('/home', 'Home')
+            li
+              hr.dropdown-divider
+            li
+              form.d-flex.justify-content-center(method='POST' action='/logout')
+                //- input.form-control.me-2(type='search' placeholder='Search' aria-
+                
